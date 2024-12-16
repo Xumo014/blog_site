@@ -14,5 +14,5 @@ class PostListView(ListView):
 
 def post_detail(request, year, month, day, slug):
     post = get_object_or_404(Post, slug=slug, status='pulished', publish__year=year, publish__month=month, publish__day=day)
-    return render(request, "blog/detail.html", {'post':post})
+    return render(request, "blog/detail.html", {'post': post})
 
