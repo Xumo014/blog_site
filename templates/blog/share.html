@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    {% if send %}
+        <h1>Xabar yuborildi</h1>
+        <p>
+        "{{ post.title }}" "{{ form.cleaned_data.to }}" ga muaffaqiyatli yuborildi
+        </p>
+    {% else %}
+        <h1>Share "{{ post.title }}" by e-mail</h1>
+        <form method="post" style="color:white !important;">
+        {{ form.as_p }}
+        {% csrf_token %}
+         <input type="submit" value="Send e-mail">
+        
+        </form>
+    {% endif %}
+{% endblock %}
